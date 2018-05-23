@@ -62,7 +62,7 @@
                                         <div class="form-line {{ $errors->has('tags') ? 'focused error' : '' }}">
                                             <label for="tag">Select Tag</label>
                                             <select name="tags[]" id="tag" class="form-control show-tick" data-live-search="true" multiple>
-                                                @foreach($categories as $tag)
+                                                @foreach($tags as $tag)
                                                     <option value="{{$tag->id}}">{{$tag->name}}</option>
                                                 @endforeach
                                             </select>
