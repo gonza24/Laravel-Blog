@@ -1,4 +1,7 @@
 /node_modules
+/public/*.png
+/public/*.jpeg
+/public/*.jpg
 /public/hot
 /public/storage
 /storage/*.key

@@ -65,7 +65,7 @@ class PostController extends Controller
 
             if( !Storage::disk('public')->exists('post'))
             {
-                Storage::disk('public')->makeDirectory('post');
+                Storage::disk('public')->makeDirectory('/post');
             }
 
             $postImage = Image::make($image)->resize(1600,1066)->save($imageName);
@@ -106,7 +106,8 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+       //return $post;
+        return view('admin.post.show', compact('post'));
     }
 
     /**
@@ -117,7 +118,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-       $categories = Category::all();
+        $categories = Category::all();
         $tags = Tag::all();
         return view('admin.post.edit',compact('post','categories','tags'));
     }
@@ -154,9 +155,9 @@ class PostController extends Controller
             }
 
             //delete old post image
-            if(Storage::disk('public')->exists('post/'.$post->image))
+            if(Storage::disk('public')->exists('/post/'.$post->image))
             {
-                Storage::disk('public')->delete('post/'.$post->image);
+                Storage::disk('public')->delete('/post/'.$post->image);
             }
 
             $postImage = Image::make($image)->resize(1600,1066)->save($imageName);
@@ -196,6 +197,16 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        if(Storage::disk('public')->exists('post/'.$post->image))
+        {
+            Storage::disk('public')->delete('post/'.$post->image);   
+        }
+
+        $post->categories()->detach();
+        $post->tags()->detach();
+        $post->delete();
+
+        Toastr::success('Post Successfully Deleted', 'Success');
+        return redirect()->back();
     }
 }
