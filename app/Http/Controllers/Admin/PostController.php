@@ -12,6 +12,7 @@ use Carbon\Carbon;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Notifications\AuthorPostApproved;
 
 class PostController extends Controller
 {
@@ -201,6 +202,7 @@ class PostController extends Controller
         {
             $post->is_approved = true;
             $post->save();
+            $post->user->notify(new AuthorPostApproved($post));
             Toastr::success('Post Successfully Approved','Success');
         }else{
             Toastr::info('This post already approved.', 'Info');
