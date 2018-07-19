@@ -82,7 +82,7 @@
 	                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
 	                                        <div class="form-group">
 	                                            <div class="form-line">
-	                                            	<input type="file" name="image" value="" placeholder="">
+	                                            	<input type="file" name="image"  placeholder="">
 	                                            </div>
 	                                        </div>
 	                                    </div>
