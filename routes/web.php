@@ -26,6 +26,8 @@ Route::group(['as'=>'admin.','prefix'=>'admin','namespace'=>'Admin','middleware'
 	Route::get('/pending/post', 'PostController@pending')->name('post.pending');
 	Route::put('/post/{id}/approve', 'PostController@approval')->name('post.approve');
 
+	Route::get('favorite','FavoriteController@index')->name('favorite.index');
+
 	Route::get('/subscriber','subscriberController@index')->name('subscriber.index');
 	Route::delete('/subscriber/{subscriber}','subscriberController@destroy')->name('subscriber.destroy');
 });
