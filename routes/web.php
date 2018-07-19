@@ -41,4 +41,6 @@ Route::group(['as'=>'author.','prefix'=>'author','namespace'=>'Author','middlewa
 
 	Route::resource('post','PostController');
 
+	Route::get('favorite','FavoriteController@index')->name('favorite.index');
+
 });

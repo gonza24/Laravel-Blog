@@ -110,6 +110,12 @@
                                 <span>Posts</span>
                             </a>
                         </li>
+                        <li class="{{ Request::is('author/favorite') ? 'active' : '' }}">
+                            <a href="{{ route('author.favorite.index') }}">
+                                <i class="material-icons">favorite</i>
+                                <span>Favorite Posts</span>
+                            </a>
+                        </li>
                         <li class="header">System</li>
                         <li class="{{ Request::is('author/settings') ? 'active' : '' }}">
                             <a href="{{ route('author.settings') }}">
