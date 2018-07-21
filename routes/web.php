@@ -8,11 +8,12 @@ Route::get('posts','PostController@index')->name('post.index');
 Route::get('post/{slug}','PostController@details')->name('post.details');
 
 Route::post('subscriber', 'SubscriberController@store')->name('subscriber.store');
+Route::post('comment/{post}','CommentController@store')->name('comment.store');
 
 Auth::routes();
 
 Route::group(['middleware' => ['auth']], function(){
-	Route::post('favorite/{post}/add', 'FavoriteController@add')->name('post.favorite');
+	Route::post('favorite/{post}/add', 'FavoriteController@add')->name('post.favorite'); 
 });
 
 
