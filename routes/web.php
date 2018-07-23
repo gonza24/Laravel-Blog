@@ -49,6 +49,9 @@ Route::group(['as'=>'author.','prefix'=>'author','namespace'=>'Author','middlewa
 
 	Route::resource('post','PostController');
 
+	Route::get('comments', 'CommentController@index')->name('comment.index');
+	Route::delete('comments/{id}', 'CommentController@destroy')->name('comment.destroy');
+
 	Route::get('favorite','FavoriteController@index')->name('favorite.index');
 
 });
