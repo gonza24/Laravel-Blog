@@ -108,7 +108,7 @@
     <script src="{{ asset('assets/backend/js/pages/tables/jquery-datatable.js') }}"></script>
     <script src="https://unpkg.com/sweetalert2@7.19.1/dist/sweetalert2.all.js"></script>
     <script type="text/javascript">
-        function removePost(id) {
+        function deleteComment(id) {
             swal({
                 title: 'Are you sure?',
                 text: "You won't be able to revert this!",
@@ -125,7 +125,7 @@
             }).then((result) => {
                 if (result.value) {
                     event.preventDefault();
-                    document.getElementById('remove-form-'+id).submit();
+                    document.getElementById('delete-form-'+id).submit();
                 } else if (
                     // Read more about handling dismissals
                     result.dismiss === swal.DismissReason.cancel

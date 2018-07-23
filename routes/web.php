@@ -33,8 +33,8 @@ Route::group(['as'=>'admin.','prefix'=>'admin','namespace'=>'Admin','middleware'
 
 	Route::get('favorite','FavoriteController@index')->name('favorite.index');
 
-	Route::get('comments/', 'CommentController@index')->name('comment.index');
-	Route::delete('comments', 'CommentController@destroy')->name('comment.destroy');
+	Route::get('comments', 'CommentController@index')->name('comment.index');
+	Route::delete('comments/{id}', 'CommentController@destroy')->name('comment.destroy');
 
 	Route::get('/subscriber','subscriberController@index')->name('subscriber.index');
 	Route::delete('/subscriber/{subscriber}','subscriberController@destroy')->name('subscriber.destroy');
