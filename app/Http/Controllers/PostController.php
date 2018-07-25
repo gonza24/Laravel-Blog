@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -28,5 +29,10 @@ class PostController extends Controller
 
     	$randomposts = Post::all()->random(3);
     	return view('post', compact('post', 'randomposts'));
+    }
+
+    public function postByCategory($slug){
+        $category = Category::where('slug', $slug)->first();
+        return view('category',compact('category'));
     }
 }
