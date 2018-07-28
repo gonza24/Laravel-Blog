@@ -58,3 +58,9 @@ Route::group(['as'=>'author.','prefix'=>'author','namespace'=>'Author','middlewa
 	Route::get('favorite','FavoriteController@index')->name('favorite.index');
 
 });
+
+//Para footer
+View::composer('layouts.frontend.partial.footer', function($view){
+	$categories = App\Category::all();
+	$view->with('categories', $categories);
+});
