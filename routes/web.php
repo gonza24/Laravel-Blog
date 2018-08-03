@@ -13,6 +13,8 @@ Route::get('/tag/{slug}','PostController@postByTag')->name('tag.posts');
 Route::post('subscriber', 'SubscriberController@store')->name('subscriber.store');
 Route::post('comment/{post}','CommentController@store')->name('comment.store');
 
+Route::get('search', 'SearchController@search')->name('search');
+
 Auth::routes();
 
 Route::group(['middleware' => ['auth']], function(){
