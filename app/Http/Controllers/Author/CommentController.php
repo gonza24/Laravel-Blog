@@ -24,7 +24,7 @@ class CommentController extends Controller
         {
             $comment->delete();
 
-            Toastr::success('Comment Successfully Deleted','Success')
+            Toastr::success('Comment Successfully Deleted','Success');
         }else{
 
             Toastr::success('You are not authorized to delete this comment','Access Denied');
